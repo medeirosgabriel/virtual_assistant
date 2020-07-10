@@ -3,7 +3,7 @@
 #Imports
 
 import speech_recognition as sr
-from Music_Player.GetMusic_2 import playMusic
+from Music_Player.getMusic_2 import playMusic
 
 def hear_mic():
     mic = sr.Recognizer()
@@ -12,16 +12,14 @@ def hear_mic():
         print("Say something...")
         audio = mic.listen(source)
     try:
-        phrase = mic.recognize_google(audio,language='pt-br')
-        print("You said: " + phrase)
-        return phrase
+        request = mic.recognize_google(audio)
+        print("You said: " + request)
+        return request
     except:
         return "I didn't understand..."
 
 while True:
     phrase = hear_mic()
-    print(phrase)
-    if ('música' in phrase.lower()):
-        music = phrase.split(" ")[1:]
-        music = " ".join(music)
+    if ('music' in phrase.lower()):
+        music = phrase.split(" ", 1)[1]
         playMusic(music)

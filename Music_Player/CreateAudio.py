@@ -6,8 +6,8 @@ from gtts import gTTS
 from playsound import playsound
 import os
 
-def create_audio(audio):
-    tts = gTTS(audio,lang='pt-br')
+def createAudio(audio):
+    tts = gTTS(audio)
     tts.save('data/audio.mp3')
     filename = 'data/audio.mp3'
     playsound(filename)
