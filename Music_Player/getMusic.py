@@ -51,11 +51,12 @@ class StopThread(Thread):
     def run(self):
         mic = sr.Recognizer()
         while self.music.get_busy():
-            with sr.Microphone(device_index=1) as source:
+            with sr.Microphone() as source:
                 mic.adjust_for_ambient_noise(source)
                 audio = mic.listen(source)
                 try:
                     command = mic.recognize_google(audio)
+                    command = command.split(' ')[1]
                     if command.lower() == 'stop':
                         self.music.stop()
                         break

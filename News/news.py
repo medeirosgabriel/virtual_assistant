@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 newsTypes = {"Tech": {"link" : "https://techcrunch.com/", "classes": ["post-block__title__link"] }}
 
-page = requests.get(newsTypes["Texh"]["link"])
+page = requests.get(newsTypes["Tech"]["link"])
 
 bsPage = BeautifulSoup(page.text, 'html.parser')
 
