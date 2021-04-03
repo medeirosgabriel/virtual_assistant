@@ -2,11 +2,12 @@ import youtube_dl
 import os
 
 link = input("Insert URL: ")
-name = input("Name URL: ")
+name = input("Music Name: ")
+finalName = "{0}.{1}".format(name, "mp3")
 
 ydl_opts = {
     'format': 'bestaudio/best',
-    'outtmpl': name,
+    'outtmpl': finalName,
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
         'preferredcodec': 'mp3',
