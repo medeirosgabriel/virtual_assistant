@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-artist",
+      "2": "I-artist",
+      "3": "L-artist",
+      "4": "U-artist",
+      "5": "B-entity_name",
+      "6": "I-entity_name",
+      "7": "L-entity_name",
+      "8": "U-entity_name",
+      "9": "B-music_item",
+      "10": "I-music_item",
+      "11": "L-music_item",
+      "12": "U-music_item",
+      "13": "B-playlist",
+      "14": "I-playlist",
+      "15": "L-playlist",
+      "16": "U-playlist",
+      "17": "B-playlist_owner",
+      "18": "I-playlist_owner",
+      "19": "L-playlist_owner",
+      "20": "U-playlist_owner",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-artist": 1,
+      "I-artist": 2,
+      "L-artist": 3,
+      "U-artist": 4,
+      "B-entity_name": 5,
+      "I-entity_name": 6,
+      "L-entity_name": 7,
+      "U-entity_name": 8,
+      "B-music_item": 9,
+      "I-music_item": 10,
+      "L-music_item": 11,
+      "U-music_item": 12,
+      "B-playlist": 13,
+      "I-playlist": 14,
+      "L-playlist": 15,
+      "U-playlist": 16,
+      "B-playlist_owner": 17,
+      "I-playlist_owner": 18,
+      "L-playlist_owner": 19,
+      "U-playlist_owner": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

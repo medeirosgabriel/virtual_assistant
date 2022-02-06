@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import speech_recognition as sr
-from music_player.getMusic import playMusic
+from request_router import router
 
 def hear_mic():
     mic = sr.Recognizer()
@@ -16,13 +16,13 @@ def hear_mic():
         except:
             return "I didn't understand... Repeat, please!"
 
-while True:
+
+continue_ = True
+
+while continue_:
     try:
-        phrase = hear_mic()
-        if ('music' in phrase.lower()):
-            music = phrase.split(" ", 1)[1]
-            playMusic(music)
-        elif phrase.lower() == 'exit':
-            break
+        request = hear_mic()
+        #print(request)
+        continue_ = router(request)
     except:
         print ("I didn't understand... Repeat, please!")

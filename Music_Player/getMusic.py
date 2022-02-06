@@ -1,16 +1,16 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 from os import listdir
 import speech_recognition as sr
 from pygame import mixer
 from threading import Thread
 
-musics = [f for f in listdir("C://Users//Alba//Music//Músicas")]
+musics = [f for f in listdir("C://Users//Alba//Music//Musics")]
 
 def playMusic(music):
     song = music_max_correlation(music)
     if (song != ''):
         print(song)
-        song = "C://Users//Alba//Music//Músicas//{}".format(song)
+        song = "C://Users//Alba//Music//Musics//{}".format(song)
         mixer.init()
         mixer.music.load(song)
         mixer.music.play()
