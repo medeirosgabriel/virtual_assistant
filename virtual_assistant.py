@@ -22,7 +22,7 @@ continue_ = True
 while continue_:
     try:
         request = hear_mic()
-        #print(request)
+        print(request)
         continue_ = router(request)
     except:
         print ("I didn't understand... Repeat, please!")

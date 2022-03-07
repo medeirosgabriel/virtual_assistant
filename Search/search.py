@@ -2,11 +2,10 @@
 
 import webbrowser
 
-search = "apple".split(" ")
-print(search)
+search = "apple"
 url = "https://www.google.com.br/search?q="
 
 for i in range(len(search)):
-    url += search[i] + "+" if i != len(search) - 1 else search[i]
-    
+    url += search[i]
+
 webbrowser.open(url)
