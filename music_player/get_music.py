@@ -1,16 +1,22 @@
 ﻿# -*- coding: utf-8 -*-
 from os import listdir
+from jproperties import Properties
 import speech_recognition as sr
 from pygame import mixer
 from threading import Thread
 
-musics = [f for f in listdir("C://Users//Alba//Music//Musics")]
+configs = Properties()
+with open('./app.properties', 'rb') as config_file:
+    configs.load(config_file)
 
-def playMusic(music):
+musics_path = configs.get("musics_path").data
+musics = [f for f in listdir(musics_path)]
+
+def play_music(music):
     song = music_max_correlation(music)
     if (song != ''):
         print(song)
-        song = "C://Users//Alba//Music//Musics//{}".format(song)
+        song = "{}{}".format(musics_path, song)
         mixer.init()
         mixer.music.load(song)
         mixer.music.play()
@@ -50,14 +56,15 @@ class StopThread(Thread):
         
     def run(self):
         mic = sr.Recognizer()
-        while self.music.get_busy():
-            with sr.Microphone() as source:
-                mic.adjust_for_ambient_noise(source)
-                audio = mic.listen(source)
+        print("Say 'STOP' to stop the the music")
+        with sr.Microphone() as source:
+            mic.adjust_for_ambient_noise(source)
+            while self.music.get_busy():
                 try:
+                    audio = mic.listen(source)
                     command = mic.recognize_google(audio)
                     command = command.split(' ')[1]
-                    if command.lower() == 'stop':
+                    if command.lower() == 'stop music':
                         self.music.stop()
                         break
                     else:

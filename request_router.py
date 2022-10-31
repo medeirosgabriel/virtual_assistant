@@ -1,8 +1,8 @@
-from music_player.getMusic import playMusic
-from rasa.nlu.model import Interpreter
+from music_player.get_music import play_music
+#from rasa.nlu.model import Interpreter
 
-model_directory = "entity_extraction_model"
-interpreter = Interpreter.load(model_directory)
+#model_directory = "entity_extraction_model"
+#interpreter = Interpreter.load(model_directory)
 
 '''
 
@@ -28,10 +28,10 @@ interpreter = Interpreter.load(model_directory)
 
 def router(request):
     request = request.lower()
-    print(interpreter.parse(request))
+    #print(interpreter.parse(request))
     if ('music' in request):
         music = request.split(" ", 1)[1]
-        playMusic(music)
-    elif request.lower() == 'finish app':
+        play_music(music)
+    elif request.lower() == 'stop':
         return False
     return True
